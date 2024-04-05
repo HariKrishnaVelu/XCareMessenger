@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XCareMessenger.Domain", "XCareMessenger.Domain\XCareMessenger.Domain.csproj", "{7ECDB647-CB31-4106-B2EA-67685C4790D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XCareMessnger.Services", "XCareMessnger.Services\XCareMessnger.Services.csproj", "{DAE4BEC4-ACF0-41BB-BBD0-07402A041D6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XCareMessenger.API", "XCareMessenger.API\XCareMessenger.API.csproj", "{8C32EDD6-B929-4733-B824-FDA2F8EA3744}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "XCareMessenger.Web", "XCareMessenger.Web\XCareMessenger.Web.esproj", "{DEA14E2A-26C6-4455-BF44-1172CA71E219}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ECDB647-CB31-4106-B2EA-67685C4790D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECDB647-CB31-4106-B2EA-67685C4790D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECDB647-CB31-4106-B2EA-67685C4790D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECDB647-CB31-4106-B2EA-67685C4790D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE4BEC4-ACF0-41BB-BBD0-07402A041D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE4BEC4-ACF0-41BB-BBD0-07402A041D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE4BEC4-ACF0-41BB-BBD0-07402A041D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE4BEC4-ACF0-41BB-BBD0-07402A041D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C32EDD6-B929-4733-B824-FDA2F8EA3744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C32EDD6-B929-4733-B824-FDA2F8EA3744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C32EDD6-B929-4733-B824-FDA2F8EA3744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C32EDD6-B929-4733-B824-FDA2F8EA3744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA14E2A-26C6-4455-BF44-1172CA71E219}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A085D4B0-0BEE-45BB-B06C-58CA28AF975C}
+	EndGlobalSection
+EndGlobal
