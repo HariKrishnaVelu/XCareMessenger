@@ -75,7 +75,7 @@ namespace XCareMessenger.API.Controllers
             }
             string token, RefreshToken;
 
-            (token, RefreshToken)= await _tokenService.CreateToken(user);
+            (token, RefreshToken)= _tokenService.CreateToken(user);
             UserDto userDto = _mapper.Map<UserDto>(user);
             userDto.RefreshToken = RefreshToken;
             userDto.Token = token;
@@ -114,14 +114,41 @@ namespace XCareMessenger.API.Controllers
         }
 
         [HttpPost("RefreshToken")]
-        public IActionResult RefreshToken(string Userid,string MasterToken)
+        [ProducesResponseType(typeof(ModelResponse<UserDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ModelResponse<UserDto>), StatusCodes.Status400BadRequest)]      
+        public async Task<ActionResult> RefreshToken(string Userid,string MasterToken)
         {
-            bool status= _tokenService.IsRefreshTokenValid(Userid, RefreshToken);
-            if(status)
+            ModelResponse<UserDto> response = new ModelResponse<UserDto>();
+            bool status= _tokenService.IsRefreshTokenValid(Userid, MasterToken);
+            if(!status)
             {
-                _tokenService.DisableToken(MasterToken);
+                response.IsError=true;
+                response.Message = "Refresh token is expired";
+                return BadRequest(response);
             }
+            status = _tokenService.DisableToken(MasterToken);
+            if(!status)
+            {
+                response.IsError = true;
+                response.Message = "Invalid token";            
+                return BadRequest(response);
+            }
+            var user =await _userService.GetUser(Userid);
+            if (user == null)
+            {
+                response.IsError = true;
+                response.Message = "User not found.";      
+                return BadRequest(response);
+            }
+            string token, RefreshToken;
+            (token, RefreshToken) = _tokenService.CreateToken(user);
+            UserDto userDto = _mapper.Map<UserDto>(user);
+            userDto.RefreshToken = RefreshToken;
+            userDto.Token = token;
 
+            response.Message = "Token refreshed successfully.";
+            response.Model = userDto;
+            return Ok(response);
         }
 
     }
