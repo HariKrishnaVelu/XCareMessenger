@@ -1,4 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using XCareMessenger.API.Hubs;
+using XCareMessnger.Services.DbConfig;
+using XCareMessnger.Services.Implementations;
+using XCareMessnger.Services.Interfaces;
 
 namespace XCareMessenger.API
 {
@@ -9,13 +13,14 @@ namespace XCareMessenger.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddDbContext<XChatContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("XchatConnstr")));
             builder.Services.AddControllers();
             builder.Services.AddSignalR();
             builder.Services.AddAutoMapper(typeof(Program).Assembly);            
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();            
-
+            builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<IUserService, UserService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
